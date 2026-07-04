@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+    content="Winga Platform is an online marketplace that connects buyers and sellers, making it easy to discover products from trusted sellers in different locations.">
+
+    <meta name="robots"
+    content="index, follow">
+
+    <link rel="canonical"
+    href="https://winga-platform.onrender.com/">
+
+    <meta property="og:title"
+    content="Winga Platform">
+
+    <meta property="og:description"
+    content="Tanzania Online Marketplace">
+
+    <meta property="og:type"
+    content="website">
+
+    <meta property="og:image"
+    content="/static/logo.png">
+
+    <link rel="shortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="row-holder-001">
+
+    <!-- Header -->
+    <div class="header-holder-001">
+        <div class="title-002">
+            Winga Platform
+        </div>
+
+        <div class="action-002">
+            <div class="sub-actions-003">
+                <button type="button">
+                    <i class="fa-solid fa-bars" onclick="menu_bar(1);"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-holder-001">
+        <div class="center-content-holder-002">
+            <div class="content-decor-002">
+
+                <!-- Left Menu -->
+                <div class="left-content-holder-003">
+                    <div class="left-content-003">
+
+                        <p style="font-weight:bold;color:dodgerblue;">
+                            Quick Links
+                        </p>
+
+                        <div class="category-holder-003">
+
+                            <div class="buttons-holder-004">
+                                <div class="buttons-004">
+                                    <button onclick="window.location.href=`{% url 'home' %}`">
+                                        <i class="fa fa-home"></i>
+                                        Home
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="buttons-holder-004">
+                                <div class="buttons-004">
+                                    <button onclick="window.location.href=`{% url 'products' %}`">
+                                        <i class="fa fa-box"></i>
+                                        Browse Products
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="buttons-holder-004">
+                                <div class="buttons-004">
+                                    <button onclick="window.location.href=`{% url 'about' %}`">
+                                        <i class="fa fa-circle-info"></i>
+                                        About Us
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="right-content-holder-003">
+
+                    <div class="products-holder-004">
+
+                        <h2 style="color:dodgerblue;">
+                            About Winga Platform
+                        </h2>
+
+                        <br>
+
+                        <p style="line-height:30px;">
+                            <strong>Winga Platform</strong> is an online marketplace
+                            designed to help customers easily discover available
+                            products from sellers in different locations.
+                            Our platform connects buyers and sellers by making
+                            products easy to search, compare, and locate.
+                        </p>
+
+                        <br>
+
+                        <h3 style="color:dodgerblue;">
+                            <i class="fa fa-bullseye"></i>
+                            Our Mission
+                        </h3>
+
+                        <p style="line-height:30px;">
+                            To simplify the buying process by providing customers
+                            with a fast, reliable, and convenient way to find
+                            products from trusted sellers while helping businesses
+                            reach more customers.
+                        </p>
+
+                        <br>
+
+                        <h3 style="color:dodgerblue;">
+                            <i class="fa fa-eye"></i>
+                            Our Vision
+                        </h3>
+
+                        <p style="line-height:30px;">
+                            To become one of the leading digital platforms where
+                            customers can easily find products and connect with
+                            sellers anytime and anywhere.
+                        </p>
+
+                        <br>
+
+                        <h3 style="color:dodgerblue;">
+                            <i class="fa fa-star"></i>
+                            Why Choose Winga Platform?
+                        </h3>
+
+                        <ul style="line-height:35px;">
+                            <li>Easy product searching.</li>
+                            <li>Find products by category.</li>
+                            <li>Locate products available near you.</li>
+                            <li>Save time when looking for items.</li>
+                            <li>Connect customers with trusted sellers.</li>
+                            <li>Simple and user-friendly interface.</li>
+                        </ul>
+
+                        <br>
+
+                        <h3 style="color:dodgerblue;">
+                            <i class="fa fa-handshake"></i>
+                            Our Commitment
+                        </h3>
+
+                        <p style="line-height:30px;">
+                            We are committed to improving the shopping experience
+                            by making product discovery simple, accurate, and
+                            accessible. We continue to improve our platform with
+                            new features that benefit both customers and sellers.
+                        </p>
+
+
+
+                        <h3 style="color:dodgerblue; margin-top: 100px;">
+                            <i class="fa fa-handshake"></i>
+                            Contacts
+                        </h3>
+
+                        <p style="line-height:30px;">
+                            <strong>Email:</strong> serviceshomelibrary@gmail.com</p>
+
+                        <p style="line-height:30px;">
+                            <strong>Phone:</strong> +255 711 319 475</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-holder-001">
+        <span>&copy; Winga Platform 2026</span>
+        <span style="float:right;">Version 1</span>
+    </div>
+
+    <!-- Floating Icon -->
+    <div class="chart-icon-001">
+        <button type="button">
+            <i class="fa fa-circle-info"></i>
+        </button>
+    </div>
+
+    <!-- Menu -->
+    <div class="menu-holder-001" id="menu_bar">
+        <div class="menu-content-002">
+
+            <div class="close-menu-003">
+                <button onclick="menu_bar(0)">x</button>
+            </div>
+
+
+        <div class="menu-003">
+          <ul>
+            <a href="{% url 'home' %}">
+              <li><i class="fa fa-home"></i> Back home</li>
+            </a>
+
+            <a href="{% url 'products' %}">
+              <li><i class="fa fa-laptop"></i> View products</li>
+            </a>
+
+            <a href="{% url 'about' %}">
+              <li><i class="fa fa-circle-info"></i> About Us</li>
+            </a>
+          </ul>
+        </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+function menu_bar(value) {
+    const bar = document.getElementById("menu_bar");
+
+    if (value == 1) {
+        bar.style.display = "inline-block";
+    } else {
+        bar.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

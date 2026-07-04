@@ -5,7 +5,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Winga platform</title>
+      <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+    content="Winga Platform is an online marketplace that connects buyers and sellers, making it easy to discover products from trusted sellers in different locations.">
+
+    <meta name="robots"
+    content="index, follow">
+
+    <link rel="canonical"
+    href="https://winga-platform.onrender.com/">
+
+    <meta property="og:title"
+    content="Winga Platform">
+
+    <meta property="og:description"
+    content="Tanzania Online Marketplace">
+
+    <meta property="og:type"
+    content="website">
+
+    <meta property="og:image"
+    content="/static/logo.png">
+
+    <link rel="shortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
   <link rel="stylesheet" href="{% static 'css/style1.css' %}">
   <link rel="stylesheet" href="{% static 'css/style2.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -20,7 +44,7 @@
       <div class="title-002">Winga platform</div>
       <div class="action-002">
         <div class="search-003">
-          <input type="text" placeholder="Search ...">
+          <input type="text" placeholder="Search ..." id="searchInput" onkeyup="filterProducts()">
         </div>
 
         <div class="sub-actions-003">
@@ -96,7 +120,7 @@
                   <div class="container">
 
 
-                    <!-- LEFT: IMAGE -->
+                    <!-- LEFT: IMAGE
                     <div class="left50">
                       <div class="product-gallery">
                         {% for image in product.images.all %}
@@ -105,10 +129,10 @@
                         <p>No images available.</p>
                         {% endfor %}
                       </div>
-                    </div>
+                    </div> -->
 
                     <!-- RIGHT: INFO -->
-                    <div class="right50">
+                    <div class="right50" style="width: 100%;">
                       <div class="product-info-box">
 
                         <span class="badge">Verified Seller</span>
@@ -126,7 +150,7 @@
                           {{ product.description }}
                         </p>
 
-                        <div class="actions">
+                        <div class="actions" style="width: 250px;">
 
                           <button class="whatsapp"
                             onclick="window.location.href=`https://wa.me/{{ product.phone }}?text=Hellow, i want {{ product.title }}`">
@@ -156,7 +180,7 @@
                       <p style="padding-left: 20px; font-weight: bold; color: dodgerblue;">Similar products</p>
                     </div>
 
-                    <div class="products-grid">
+                    <div class="products-grid" id="productGrid">
 
                       {% for product_details in products %}
 
@@ -164,13 +188,6 @@
                         <div class="product-card"
                           onclick="window.location.href=`{% url 'product_details' product_details.id %}`">
                           <div class="product-image-20">
-                            <button type="button" class="button201">
-                              {% for image in product_details.images.all %}
-                              <img src="{{ image.image.url }}" alt="{{ product_details.title }}">
-                              {% empty %}
-                              <p>No images available.</p>
-                              {% endfor %}
-                            </button>
                             <button type="button" class="button202">
                               <b>{{ product_details.title }}</b><br>
                               <span class="price40">{{ product_details.price }} Tsh</span><br>
@@ -223,12 +240,12 @@
               <li><i class="fa fa-home"></i> Back home</li>
             </a>
 
-            <a href="{% url 'filter_products' 'electonics' %}">
-              <li><i class="fa fa-laptop"></i> Products available</li>
+            <a href="{% url 'products' %}">
+              <li><i class="fa fa-laptop"></i> View products</li>
             </a>
 
-            <a href="{% url 'filter_products' 'electronics' %}">
-              <li><i class="fa fa-laptop"></i> Favorite products</li>
+            <a href="{% url 'about' %}">
+              <li><i class="fa fa-circle-info"></i> About Us</li>
             </a>
           </ul>
         </div>
@@ -249,6 +266,24 @@
       }
     }
   </script>
+
+      <script>
+        function filterProducts() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const productGrid = document.getElementById('productGrid');
+            const products = productGrid.getElementsByClassName('product-card');
+
+            for (let i = 0; i < products.length; i++) {
+                const productTitle = products[i].querySelector('.button202 b').textContent.toLowerCase();
+                if (productTitle.includes(filter)) {
+                    products[i].parentElement.style.display = '';
+                } else {
+                    products[i].parentElement.style.display = 'none';
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

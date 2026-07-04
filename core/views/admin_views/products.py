@@ -3,11 +3,9 @@ from decimal import Decimal, InvalidOperation
 from django.contrib.auth.decorators import login_required
 
 from django.contrib import messages
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_image_file_extension
 from django.shortcuts import redirect, get_object_or_404
 
-from core.models import Product, ProductImage
+from core.models import Product
 
 # Products management
 # Product list
@@ -34,7 +32,6 @@ def add_product(request):
         location = request.POST.get("location", "")
         price = request.POST.get("price", "")
         status = request.POST.get("status", "")
-        images = request.FILES.getlist("images")
 
         # Validation
         if not title:
@@ -65,34 +62,9 @@ def add_product(request):
             messages.error(request, "Phone number is required.")
             return redirect("add_product")
 
-        if len(images) == 0:
-            messages.error(request, "Upload at least one image.")
-            return redirect("add_product")
-
-        if len(images) > 10:
-            messages.error(request, "Maximum of 10 images allowed.")
-            return redirect("add_product")
-
-        # Validate each image
-        for image in images:
-            if image.size > 5 * 1024 * 1024:
-                messages.error(
-                    request,
-                    f"{image.name} is larger than 5MB."
-                )
-                return redirect("add_product")
-
-            try:
-                validate_image_file_extension(image)
-            except ValidationError:
-                messages.error(
-                    request,
-                    f"{image.name} is not a valid image."
-                )
-                return redirect("add_product")
 
         # Save product
-        product = Product.objects.create(
+        Product.objects.create(
             title=title,
             description=description,
             price=price,
@@ -102,13 +74,6 @@ def add_product(request):
             location=location,
             owner=request.user,
         )
-
-        # Save images
-        for image in images:
-            ProductImage.objects.create(
-                product=product,
-                image=image
-            )
 
         messages.success(request, "Product added successfully.")
         return redirect("add_product")
@@ -132,7 +97,6 @@ def edit_product(request, id):
         location = request.POST.get("location", "")
         price = request.POST.get("price", "")
         status = request.POST.get("status", "")
-        images = request.FILES.getlist("images")
 
         # Validation
         if not title:
@@ -163,21 +127,6 @@ def edit_product(request, id):
             messages.error(request, "Phone number is required.")
             return redirect("edit_product", id=id)
 
-        if len(images) > 10:
-            messages.error(request, "Maximum of 10 images allowed.")
-            return redirect("edit_product", id=id)
-
-        # Validate images
-        for image in images:
-            if image.size > 5 * 1024 * 1024:
-                messages.error(request, f"{image.name} is larger than 5MB.")
-                return redirect("edit_product", id=id)
-
-            try:
-                validate_image_file_extension(image)
-            except ValidationError:
-                messages.error(request, f"{image.name} is not a valid image.")
-                return redirect("edit_product", id=id)
 
         # Update product
         product.title = title
@@ -189,21 +138,6 @@ def edit_product(request, id):
         product.location = location
         product.save()
 
-        # Save new images (optional)
-        if images:
-             # Delete old image files from storage
-            for image in ProductImage.objects.filter(product=product):
-                if image.image:
-                    image.image.delete(save=False)
-
-            # Delete image records
-            ProductImage.objects.filter(product=product).delete()
-
-            for image in images:
-                ProductImage.objects.create(
-                    product=product,
-                    image=image
-                )
 
         messages.success(request, "Product updated successfully.")
         return redirect("edit_product", id=id)
@@ -223,14 +157,6 @@ def edit_product(request, id):
 @login_required(login_url="login_admin")
 def delete_product(request, id):
     product = get_object_or_404(Product, id=id)
-
-    # Delete image files from storage
-    for image in ProductImage.objects.filter(product=product):
-        if image.image:
-            image.image.delete(save=False)
-
-    # Delete image records
-    ProductImage.objects.filter(product=product).delete()
 
     # Delete product
     product.delete()

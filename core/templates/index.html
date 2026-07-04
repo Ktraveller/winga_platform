@@ -5,7 +5,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winga platform</title>
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+    content="Buy and sell electronics, furniture, food, houses and more on Winga Platform.">
+
+    <meta name="robots"
+    content="index, follow">
+
+    <link rel="canonical"
+    href="https://winga-platform.onrender.com/">
+
+    <meta property="og:title"
+    content="Winga Platform">
+
+    <meta property="og:description"
+    content="Tanzania Online Marketplace">
+
+    <meta property="og:type"
+    content="website">
+
+    <meta property="og:image"
+    content="/static/logo.png">
+
+    <link rel="shortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
+
     <link rel="stylesheet" href="{% static 'css/style1.css' %}">
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -19,7 +45,7 @@
             <div class="title-002">Winga platform</div>
             <div class="action-002">
                 <div class="search-003">
-                    <input type="text" placeholder="Search ..." id="search">
+                    <input type="text" placeholder="Search ..." id="searchInput" onkeyup="filterProducts()">
                 </div>
 
                 <div class="sub-actions-003">
@@ -104,13 +130,6 @@
                                         <div class="product-card"
                                             onclick="window.location.href=`{% url 'product_details' product.id %}`">
                                             <div class="product-image-20">
-                                                <button type="button" class="button201">
-                                                    {% for image in product.images.all %}
-                                                    <img src="{{ image.image.url }}" alt="{{ product.title }}">
-                                                    {% empty %}
-                                                    <p>No images available.</p>
-                                                    {% endfor %}
-                                                </button>
                                                 <button type="button" class="button202">
                                                     <b>{{ product.title }}</b><br>
                                                     <span class="price40">{{ product.price }} Tsh</span><br>
@@ -158,15 +177,16 @@
               <li><i class="fa fa-home"></i> Back home</li>
             </a>
 
-            <a href="{% url 'filter_products' 'electonics' %}">
-              <li><i class="fa fa-laptop"></i> Products available</li>
+            <a href="{% url 'products' %}">
+              <li><i class="fa fa-laptop"></i> View products</li>
             </a>
 
-            <a href="{% url 'filter_products' 'electronics' %}">
-              <li><i class="fa fa-laptop"></i> Favorite products</li>
+            <a href="{% url 'about' %}">
+              <li><i class="fa fa-circle-info"></i> About Us</li>
             </a>
           </ul>
         </div>
+        
       </div>
     </div>
     </div>
@@ -181,6 +201,24 @@
             }
             else {
                 bar.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script>
+        function filterProducts() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const productGrid = document.getElementById('productGrid');
+            const products = productGrid.getElementsByClassName('product-card');
+
+            for (let i = 0; i < products.length; i++) {
+                const productTitle = products[i].querySelector('.button202 b').textContent.toLowerCase();
+                if (productTitle.includes(filter)) {
+                    products[i].parentElement.style.display = '';
+                } else {
+                    products[i].parentElement.style.display = 'none';
+                }
             }
         }
     </script>
