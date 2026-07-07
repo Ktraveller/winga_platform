@@ -1,12 +1,64 @@
+/* Font card */
+.font-card-holder {
+    width: 100%;
+    height: 320px;
+    background: crimson;
+    border-radius: 5px;
+}
+
+.font-card {
+    width: 100%;
+    height: 100%;
+    background-image: url('../logo.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 150px 150px;
+    padding: 10px;
+    padding-left: 20px;
+    color: whitesmoke;
+}
+
+.t1 {
+    font-size: 15px;
+}
+
+.t2 {
+    font-size: 25px;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 3px 3px 3px #ababab30;
+}
+
+.t3>i {
+    font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+    .font-card {
+        background-size: 300px 300px;
+    }
+
+    .t1 {
+        font-size: 25px;
+    }
+
+    .t2 {
+        font-size: 35px;
+    }
+
+    .t3>i {
+        font-size: 30px;
+    }
+}
+
 .center-content-holder-002 {
     width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
+    height: auto;
 }
 
 .content-decor-002 {
     width: 100%;
-    height: 100vh;
+    height: auto;
+    margin-top: 50px;
 }
 
 .content-decor-002>div {
@@ -15,20 +67,24 @@
 }
 
 .left-content-holder-003 {
-    width: 100%;
+    width: 5%;
 }
 
 .right-content-holder-003 {
-    width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
+    width: 95%;
+    height: auto;
 }
 
 .products-holder-004 {
     width: 100%;
-    height: 4000px;
+    height: auto;
     padding: 10px;
     background: transparent;
+    overflow-y: scroll;
+
+    border-left: 1px solid rgba(0, 0, 0, 0.093);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.093);
+    border-bottom-left-radius: 20px;
 }
 
 .left-content-003 {
@@ -102,7 +158,7 @@
 .products-grid>div {
     float: left;
     width: 50%;
-    height: 100px;
+    height: 150px;
     padding: 10px;
     background: transparent;
 }
@@ -110,11 +166,11 @@
 .product-card {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
-    border: 1px solid rgba(30, 143, 255, 0.447);
+    border-radius: 5px;
     padding: 10px;
-    background: transparent;
+    background: palegoldenrod;
     cursor: pointer;
+    text-align: left;
     overflow: hidden;
 }
 
@@ -156,10 +212,11 @@
     height: 100%;
     padding-left: 10px;
     border-style: none;
-    text-align: center;
+    text-align: left;
     cursor: pointer;
     text-overflow: ellipsis;
-    color: rgba(0, 0, 0, 0.611);
+    color: rgba(0, 0, 0, 0.867);
+    overflow: hidden;
 }
 
 
@@ -168,10 +225,13 @@
     margin-bottom: 50px;
 }
 
-.price40 {
-    color: dodgerblue;
-    font-weight: bolder;
+.p-title-20 {
     font-size: 15px;
+}
+
+.price40 {
+    color: crimson;
+    font-weight: bolder;
 }
 
 @media only screen and (min-width: 768px) {
@@ -183,23 +243,59 @@
 }
 
 
+/* Selected product */
+.selected-product-holder-005 {
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(rgb(248, 144, 165), white);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.selected-product-005 {
+    width: 100%;
+    height: auto;
+}
+
+.selected-product-holder-005>div {
+    float: left;
+    padding: 10px;
+    width: 100%;
+}
+
+.request-contacts {
+    width: 100%;
+    height: auto;
+    background: transparent;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.request-contacts>button {
+    width: 50%;
+    float: left;
+    height: 40px;
+    border-style: none;
+    outline: none;
+    background: crimson;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.request-contacts>button:hover {
+    opacity: 0.8;
+}
+
 @media only screen and (min-width: 768px) {
 
     .left-content-holder-003 {
-        width: 20%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-    }
-
-    .left-content-003 {
-        margin-top: 50px;
+        width: 5%;
     }
 
     .right-content-holder-003 {
-        width: 80%;
-        margin-left: 20%;
+        width: 95%;
     }
 
     .category-holder-003 {
@@ -233,5 +329,15 @@
         background: transparent;
         height: 50px;
         width: 100%;
+    }
+
+
+    .selected-product-holder-005 {
+        height: auto;
+    }
+
+
+    .selected-product-holder-005>div {
+        width: 50%;
     }
 }

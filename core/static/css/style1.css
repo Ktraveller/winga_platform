@@ -2,6 +2,7 @@
     box-sizing: border-box;
     font-size: 12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    scroll-behavior: smooth;
 }
 
 html,
@@ -13,19 +14,19 @@ body {
 
 .row-holder-001 {
     width: 100%;
-    height: 100vh;
-    background: dodgerblue;
+    height: auto;
 }
 
 .header-holder-001 {
     width: 100%;
     height: 50px;
-    background: transparent;
+    background: crimson;
 
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    z-index: 999;
 }
 
 .header-holder-001>div {
@@ -33,14 +34,17 @@ body {
 }
 
 .title-002 {
-    padding: 15px;
-    color: white;
+    padding-left: 15px;
+    padding-top: 10px;
+    color: whitesmoke;
     font-weight: bold;
-    width: 40%;
+    width: 60%;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .action-002 {
-    width: 60%;
+    width: 40%;
 }
 
 .action-002>div {
@@ -67,19 +71,28 @@ body {
 }
 
 .sub-actions-003 {
-    width: 30%;
-    padding: 10px;
-    text-align: center;
-    padding-right: 10px;
+    width: 100%;
+    padding: 5px;
+    text-align: right;
 }
 
 .sub-actions-003>button {
-    width: 30px;
-    height: 30px;
+    width: auto;
+    height: 40px;
     border-style: none;
-    border-radius: 40px;
+    border-radius: 5px;
     background: transparent;
     border: 1px solid white;
+    margin-right: 15px;
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.sub-actions-003>button:hover {
+    opacity: 0.8;
 }
 
 .sub-actions-003>button>i {
@@ -89,12 +102,7 @@ body {
 
 .content-holder-001 {
     width: 100%;
-    position: fixed;
-    top: 50px;
-    bottom: 50px;
-    background: white;
-    overflow: hidden;
-    border-radius: 10px;
+    height: auto;
 }
 
 
@@ -122,19 +130,14 @@ body {
 
 .footer-holder-001 {
     width: 100%;
-    height: 50px;
-    background: transparent;
-
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 900;
+    height: 400px;
+    float: left;
+    background: rgba(0, 0, 0, 0.704);
 }
 
 .footer-holder-001 {
     padding: 15px;
-    color: white;
+    color: rgb(215, 37, 37);
 }
 
 .menu-holder-001 {
@@ -219,7 +222,7 @@ body {
     }
 
     .sub-actions-003 {
-        width: 20%;
+        width: 100%;
     }
 
 }

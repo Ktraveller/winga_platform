@@ -2,9 +2,13 @@ from django.shortcuts import get_object_or_404, render
 from core.models import Product
 
 def products(request):
-    products = Product.objects.order_by('?')[:50]
+    products = Product.objects.order_by('?')[:100]
+    other_products = Product.objects.order_by('?')[:50]
+    like_products = Product.objects.order_by('?')[:20]
     return render(request, 'products.html', {
         'products': products,
+        'other_products': other_products,
+        'like_products': like_products
     })
 
 
@@ -19,10 +23,32 @@ def preview_products(request, id):
 
 
 def filter_products(request, category):
-    products = Product.objects.order_by('?').filter(category=category)[:50]
-    products_related = Product.objects.order_by('?')[:50]
-    return render(request, 'products.html', {
-        'products': products,
-        'category': category,
-        'product_related': products_related
-    })
+    if category == 'sort':
+        products = Product.objects.order_by('title')[:50]
+        other_products = Product.objects.order_by('title')[:50]
+        like_products = Product.objects.order_by('title')[:20]
+
+        return render(request, 'products.html', {
+            'products': products,
+            'other_products': other_products,
+            'like_products': like_products,
+        })
+    elif category == 'filter':
+        products = Product.objects.order_by('category')[:50]
+        other_products = Product.objects.order_by('category')[:50]
+        like_products = Product.objects.order_by('category')[:20]
+
+        return render(request, 'products.html', {
+            'products': products,
+            'other_products': other_products,
+            'like_products': like_products,
+        })
+    else:
+        products = Product.objects.order_by('?').filter(category=category)[:50]
+        other_products = Product.objects.order_by('?')[:50]
+        like_products = Product.objects.order_by('?')[:20]
+        return render(request, 'products.html', {
+            'products': products,
+            'other_products': other_products,
+            'like_products': like_products,
+        })

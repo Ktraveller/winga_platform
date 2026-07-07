@@ -5,33 +5,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-    content="Winga Platform is an online marketplace that connects buyers and sellers, making it easy to discover products from trusted sellers in different locations.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="robots"
-    content="index, follow">
+  <meta name="description" content="Buy and sell electronics, furniture, food, houses and more on Winga Platform.">
 
-    <link rel="canonical"
-    href="https://winga-platform.onrender.com/">
+  <meta name="robots" content="index, follow">
 
-    <meta property="og:title"
-    content="Winga Platform">
+  <link rel="canonical" href="https://winga-platform.onrender.com/">
 
-    <meta property="og:description"
-    content="Tanzania Online Marketplace">
+  <meta property="og:title" content="Winga Platform">
 
-    <meta property="og:type"
-    content="website">
+  <meta property="og:description" content="Tanzania Online Marketplace">
 
-    <meta property="og:image"
-    content="/static/logo.png">
+  <meta property="og:type" content="website">
 
-    <link rel="shortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
+  <meta property="og:image" content="/static/logo.png">
+
+  <link rel="shortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
+
   <link rel="stylesheet" href="{% static 'css/style1.css' %}">
   <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+  <link rel="stylesheet" href="{% static 'css/reuse-module.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -40,14 +35,13 @@
   <!-- Layout -->
   <div class="row-holder-001">
     <div class="header-holder-001">
-      <div class="title-002">Winga platform</div>
+      <div class="title-002" onclick="window.location.href=`{% url 'home' %}`">Winga platform</div>
       <div class="action-002">
-        <div class="search-003">
-          <input type="text" placeholder="Search ..." id="searchInput" onkeyup="filterProducts()">
-        </div>
 
         <div class="sub-actions-003">
-          <button type="button"><i class="fa-solid fa-bars" onclick="menu_bar(1);" onclick="menu_bar(1);"></i></button>
+          <button type="button"
+            onclick="window.location.href=`https://wa.me/255711319475?text=Hellow, i want to sell my products`">Sell
+            products</button>
         </div>
 
 
@@ -57,64 +51,91 @@
 
     <div class="content-holder-001">
       <div class="center-content-holder-002">
+        <!-- First part -->
+
         <div class="content-decor-002">
 
           <div class="left-content-holder-003">
             <div class="left-content-003">
-              <p style="font-weight: bold; color: dodgerblue;">Product categories</p>
-
-              <div class="category-holder-003">
-
-                <div class="category-003">
-
-                  <div class="buttons-holder-004">
-                    <div class="buttons-004">
-                      <button type="button" onclick="window.location.href=`{% url 'filter_products' 'electronics' %}`">
-                        <i class="fa fa-laptop"></i> Electronics</button>
-                    </div>
-                  </div>
-
-                  <div class="buttons-holder-004">
-                    <div class="buttons-004">
-                      <button type="button" onclick="window.location.href=`{% url 'filter_products' 'food' %}`">
-                        <i class="fa fa-utensils"></i> Food</button>
-                    </div>
-                  </div>
-
-                  <div class="buttons-holder-004">
-                    <div class="buttons-004">
-                      <button type="button" onclick="window.location.href=`{% url 'filter_products' 'houses' %}`">
-                        <i class="fa fa-home"></i> Houses</button>
-                    </div>
-                  </div>
-
-                  <div class="buttons-holder-004">
-                    <div class="buttons-004">
-                      <button type="button" onclick="window.location.href=`{% url 'filter_products' 'clothes' %}`">
-                        <i class="fa fa-home"></i> Clothes</button>
-                    </div>
-                  </div>
-
-                  <div class="buttons-holder-004">
-                    <div class="buttons-004">
-                      <button type="button" onclick="window.location.href=`{% url 'filter_products' 'furniture' %}`">
-                        <i class="fa fa-home"></i> Furniture</button>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
+              <!-- Left gap -->
             </div>
           </div>
 
           <div class="right-content-holder-003">
             <div class="products-holder-004">
-              <p style="font-weight: bold; color: dodgerblue; text-transform: capitalize;">{{ category }} products</p>
 
-              <div class="products-holder-005" style="margin-bottom: 50px;">
+              <!-- Favorite products -->
+              <h1 style="margin-top: 100px; font-size: 15px;">Favorite products
+                <span style="float: right;">More products</span>
+              </h1>
 
+
+              <div class="scroll-products-holder">
+                <div class="scroll-left-holder">
+
+                  {% for product in products %}
+
+                  <div>
+                    <div class="product-card" style="background: rgba(220, 20, 60, 0.12);"
+                      onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                      <div class="product-image-20">
+                        <button type="button" class="button202">
+                          <b class="p-title-20">{{ product.title }}</b><br>
+                          <span class="price40">{{ product.price }} Tsh</span>
+                          <br><br>
+                          <span><i class="fa fa-location-dot"></i>
+                            {{ product.location }}</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {% endfor %}
+
+                </div>
+              </div>
+
+              <!-- Product category -->
+              <h1 style="margin-top: 100px; font-size: 15px;" id="category">Product categories
+              </h1>
+
+
+
+
+              <div class="category-product-holder">
+                <div class="category-holder">
+                  <div><button type="button"
+                      onclick="window.location.href=`{% url 'filter_products' 'electronics' %}`">Electronics</button>
+                  </div>
+                  <div><button type="button"
+                      onclick="window.location.href=`{% url 'filter_products' 'furniture' %}`">Furniture</button>
+                  </div>
+                  <div><button type="button"
+                      onclick="window.location.href=`{% url 'filter_products' 'clothes' %}`">Clothes</button>
+                  </div>
+                  <div><button type="button"
+                      onclick="window.location.href=`{% url 'filter_products' 'food' %}`">Food</button>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+              <h1 style="margin-top: 100px; font-size: 15px;">Featured products</h1>
+
+              <!-- Search module -->
+              <div class="search-filter-filter">
+                <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+
+                <button type="button" onclick="window.location.href=`{% url 'filter_products' 'filter' %}`"><i
+                    class="fa fa-filter"></i></button>
+                <button type="button" onclick="window.location.href=`{% url 'filter_products' 'sort' %}`"><i
+                    class="fa fa-sort"></i></button>
+              </div>
+
+
+              <div class="products-holder-005">
                 <div class="products-grid" id="productGrid">
 
                   {% for product in products %}
@@ -123,16 +144,15 @@
                     <div class="product-card" onclick="window.location.href=`{% url 'product_details' product.id %}`">
                       <div class="product-image-20">
                         <button type="button" class="button202">
-                          <b>{{ product.title }}</b><br>
-                          <span class="price40">{{ product.price }} Tsh</span><br>
-                          <span><i class="fa fa-location-dot"></i> {{ product.location }}</span>
+                          <b class="p-title-20">{{ product.title }}</b><br>
+                          <span class="price40">{{ product.price }} Tsh</span>
+                          <br><br>
+                          <span><i class="fa fa-location-dot"></i>
+                            {{ product.location }}</span>
                         </button>
                       </div>
                     </div>
                   </div>
-                  {% empty %}
-
-                  <p>No products related with this category!</p>
 
                   {% endfor %}
 
@@ -140,81 +160,129 @@
 
               </div>
 
+              <!-- Filter products -->
+              <div class="view-more-holder">
+                <button type="button">View more products</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
 
 
-              <div style="float: left; margin-top: 100px; width: 100%;">
-                <p style="font-weight: bold; color: dodgerblue;">Other products that you may like</p>
-                <div class="products-holder-005">
+      <!-- Second part -->
+      <div class="content-decor-002">
 
-                  <div class="products-grid">
+        <div class="left-content-holder-003">
+          <div class="left-content-003">
+            <!-- Left gap -->
+          </div>
+        </div>
 
-                    {% for product_l in product_related %}
+        <div class="right-content-holder-003">
+          <div class="products-holder-004" style="border-top-left-radius: 20px;">
 
-                    <div>
-                      <div class="product-card"
-                        onclick="window.location.href=`{% url 'product_details' product_l.id %}`">
-                        <div class="product-image-20">
-                          <button type="button" class="button202">
-                            <b>{{ product_l.title }}</b><br>
-                            <span class="price40">{{ product_l.price }} Tsh</span><br>
-                            <span><i class="fa fa-location-dot"></i> {{ product_l.location }}</span>
-                          </button>
-                        </div>
-                      </div>
+            <h1 style="margin-top: 100px; font-size: 15px;">Other products</h1>
+
+
+            <div class="products-holder-005">
+              <div class="products-grid" id="productGrid">
+
+                {% for product in other_products %}
+
+                <div>
+                  <div class="product-card" style="background: whitesmoke;"
+                    onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                    <div class="product-image-20">
+                      <button type="button" class="button202">
+                        <b class="p-title-20">{{ product.title }}</b><br>
+                        <span class="price40">{{ product.price }} Tsh</span>
+                        <br><br>
+                        <span><i class="fa fa-location-dot"></i>
+                          {{ product.location }}</span>
+                      </button>
                     </div>
-
-                    {% endfor %}
-
                   </div>
-
                 </div>
+
+                {% endfor %}
+
+              </div>
+
+            </div>
+
+            <!-- Other product scroll -->
+            <div class="scroll-products-holder" style="margin-top: 100px; float: left;">
+              <h1 style="font-size: 15px;">Also you may like
+                <span style="float: right;">More products</span>
+              </h1>
+              <div class="scroll-left-holder">
+
+                {% for product in like_products %}
+
+                <div style="height: 100px;">
+                  <div class="product-card" style="background: whitesmoke;"
+                    onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                    <div class="product-image-20">
+                      <button type="button" class="button202">
+                        <b class="p-title-20">{{ product.title }}</b><br>
+                        <span class="price40">{{ product.price }} Tsh</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {% endfor %}
+
               </div>
             </div>
           </div>
 
         </div>
+
       </div>
     </div>
 
 
-    <div class="footer-holder-001">
-      <span> &copy; Winga platform 2026</span>
-      <span style="float: right;">Version: 1</span>
-    </div>
+
+  </div>
 
 
-    <!-- Other contents -->
-    <div class="chart-icon-001">
-      <button type="button"><i class="fa fa-chart-bar"></i></button>
-    </div>
+  <!-- Footer content -->
+  <div class="footer-content-holder">
+    <div class="footer-content">
+      <h1 style="font-size: 15px; text-align: center; margin-bottom: 50px;">Welcome to our platform</h1>
 
+      <div class="foot-content">
 
-    <!-- menu bar -->
-    <div class="menu-holder-001" id="menu_bar">
-      <div class="menu-content-002">
-        <div class="close-menu-003">
-          <button type="button" onclick="menu_bar(0)">x</button>
+        <div class="foot-declaration" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
+          <p><b>Winga platform</b>, is a platform that connect customer and seller, <br>
+            help customer to get seller contacts that use to communicate with seller for buying
+            products.</p>
         </div>
 
-
-        <div class="menu-003">
+        <div class="foot-category" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
+          <p style="text-align: center;"><b>Products available based on categories</b></p>
           <ul>
-            <a href="{% url 'home' %}">
-              <li><i class="fa fa-home"></i> Back home</li>
-            </a>
-
-            <a href="{% url 'products' %}">
-              <li><i class="fa fa-laptop"></i> View products</li>
-            </a>
-
-            <a href="{% url 'about' %}">
-              <li><i class="fa fa-circle-info"></i> About Us</li>
-            </a>
+            <li><a href="#category">Electronics</a></li>
+            <li><a href="#category">Furniture</a></li>
+            <li><a href="#category">Clothes</a></li>
+            <li><a href="#category">Food</a></li>
+            <li><a href="#category">Residents</a></li>
+            <li><a href="#category">And more ...</a></li>
           </ul>
         </div>
+
+        <div class="foot-contact">
+          <p style="text-align: center;"><b>Contacts</b></p>
+          <p><b>Phone:</b> 255711319475</p>
+          <p><b>Email:</b> serviceshomelibrary@gmail.com</p>
+          <p><b>Location: </b>Mabibo, Dar es salaam</p>
+        </div>
       </div>
     </div>
-
   </div>
 
   <!-- javascripts code -->
@@ -231,25 +299,41 @@
     }
   </script>
 
-    </script>
+  <script>
+    function filterProducts() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+      const productGrid = document.getElementById('productGrid');
+      const products = productGrid.getElementsByClassName('product-card');
 
-      <script>
-        function filterProducts() {
-            const input = document.getElementById('searchInput');
-            const filter = input.value.toLowerCase();
-            const productGrid = document.getElementById('productGrid');
-            const products = productGrid.getElementsByClassName('product-card');
-
-            for (let i = 0; i < products.length; i++) {
-                const productTitle = products[i].querySelector('.button202 b').textContent.toLowerCase();
-                if (productTitle.includes(filter)) {
-                    products[i].parentElement.style.display = '';
-                } else {
-                    products[i].parentElement.style.display = 'none';
-                }
-            }
+      for (let i = 0; i < products.length; i++) {
+        const productTitle = products[i].querySelector('.button202 b').textContent.toLowerCase();
+        if (productTitle.includes(filter)) {
+          products[i].parentElement.style.display = '';
+        } else {
+          products[i].parentElement.style.display = 'none';
         }
-    </script>
+      }
+    }
+  </script>
+
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 10000); // Change image every 2 seconds
+    } 
+  </script>
 </body>
 
 </html>
