@@ -48,9 +48,9 @@
     <aside class="sidebar" id="sidebar">
         <h2>Winga Platform</h2>
 
-    <a href="{% url 'admin_home' %}">Dashboard</a>
-    <a href="{% url 'admin_products' %}" class="active-link">Products</a>
-    <a href="{% url 'logout_admin' %}">Logout</a>
+        <a href="{% url 'admin_home' %}">Dashboard</a>
+        <a href="{% url 'admin_products' %}" class="active-link">Products</a>
+        <a href="{% url 'logout_admin' %}">Logout</a>
     </aside>
 
     <!-- MAIN -->
@@ -167,6 +167,13 @@
                     </div>
 
                     <div>
+                        <label for="status">Image:</label>
+                        <div class="input">
+                            <input type="file" name="image" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div>
                         <label for="status">Status:</label>
                         <div class="input">
                             <select name="status" required>
@@ -176,6 +183,8 @@
                             </select>
                         </div>
                     </div>
+
+
 
                     <br>
                     <div class="submit-inputs" style="width: 100%; text-align: center; padding: 0;">

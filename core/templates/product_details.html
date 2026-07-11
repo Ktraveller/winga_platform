@@ -9,7 +9,7 @@
   <title>Wingastock | Bidhaa uliochagua, bidhaa zaidi</title>
 
   <meta name="description" content="Nunua na uza bidhaa za electoniki kama simu, laptops, TV, 
-    pia tunauza Thamani za ndani (furniture), vyumba, nyumba na bidhaa mbalimbali kupitia jukwaa letu wingastock ">
+    pia tunauza samani za ndani (furniture), vyumba, nyumba na bidhaa mbalimbali kupitia jukwaa letu wingastock ">
 
   <meta name="robots" content="index, follow">
 
@@ -30,6 +30,19 @@
   <link rel="stylesheet" href="{% static 'css/style2.css' %}">
   <link rel="stylesheet" href="{% static 'css/reuse-module.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <meta name="google-site-verification" content="cBo6MO_R0NHmkbNtZ4TbAd5KcLYgqPdt0XB-BgMYi1o" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-STT2EJ7H54"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-STT2EJ7H54');
+  </script>
+
 </head>
 
 <body>
@@ -71,18 +84,26 @@
               <div class="selected-product-holder-005">
                 <div class="selected-product-005">
                   <div class="product-details-004">
-                    <h1 style="font-size: 18px;">{{ product.title }}</h1>
-                    <p><b>Maelezo: </b> {{ product.description }}</p>
-                    <p><b>Bei: </b>{{ product.price }} Tsh</p>
-                    <br>
-                    <p><b>Anuani: </b>{{ product.location }}</p>
+                    <button type="button" class="product-det-005">
+                      <img src="{{ product.image.url }}" alt="{{ product.title }}" srcset="">
+                    </button>
                   </div>
                 </div>
 
                 <div class="product-actions-004">
                   <div class="request-contacts">
-                    <button type="button" 
-                      onclick="window.location.href=`tel:+255711319475`"><i class="fa-solid fa-phone"></i> Ongea na muuzaji</button>
+
+                    <h1 style="font-size: 18px; text-shadow: 2px 2px 2px #ccc;">{{ product.title }}</h1>
+                    <p>
+                    <pre>{{ product.description }}</pre>
+                    </p>
+                    <p><b>Bei: </b>{{ product.price }} Tsh</p>
+                    <br>
+                    <p><b>Anuani: </b>{{ product.location }}</p>
+
+
+                    <button type="button" onclick="window.location.href=`tel:+255711319475`"><i
+                        class="fa-solid fa-phone"></i> Ongea na muuzaji</button>
                     <button type="button" style="background: green;"
                       onclick="window.location.href=`https://wa.me/255711319475?text=Habari, naulizia {{ product.title }}`">
                       <i class="fa-brands fa-whatsapp"></i> Tuma meseji whatsapp</button>
@@ -119,6 +140,11 @@
                   <div>
                     <div class="product-card" onclick="window.location.href=`{% url 'product_details' product.id %}`">
                       <div class="product-image-20">
+                        <button type="button" class="button201">
+                          {% if product.image %}
+                          <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                          {% endif %}
+                        </button>
                         <button type="button" class="button202">
                           <b class="p-title-20">{{ product.title }}</b><br>
                           <span class="price40">{{ product.price }} Tsh</span>
@@ -138,7 +164,9 @@
 
               <!-- Filter products -->
               <div class="view-more-holder">
-                <button type="button" onclick="window.location.href=`{% url 'filter_products' product.category %}`">Tazama bidhaa zaidi</button>
+                <button type="button"
+                  onclick="window.location.href=`{% url 'filter_products' product.category %}`">Tazama bidhaa
+                  zaidi</button>
               </div>
             </div>
 
@@ -168,9 +196,14 @@
                 {% for product in products %}
 
                 <div>
-                  <div class="product-card" style="background: whitesmoke;"
+                  <div class="product-card"
                     onclick="window.location.href=`{% url 'product_details' product.id %}`">
                     <div class="product-image-20">
+                      <button type="button" class="button201">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                        {% endif %}
+                      </button>
                       <button type="button" class="button202">
                         <b class="p-title-20">{{ product.title }}</b><br>
                         <span class="price40">{{ product.price }} Tsh</span>
@@ -202,39 +235,40 @@
 
 
   <!-- Footer content -->
-    <div class="footer-content-holder">
-        <div class="footer-content">
-            <h1 style="font-size: 15px; text-align: center; margin-bottom: 50px;">Karibu kwenye tovuti yetu 'Wingastock'</h1>
+  <div class="footer-content-holder">
+    <div class="footer-content">
+      <h1 style="font-size: 15px; text-align: center; margin-bottom: 50px;">Karibu kwenye tovuti yetu 'Wingastock'</h1>
 
-            <div class="foot-content">
+      <div class="foot-content">
 
-                <div class="foot-declaration" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
-                    <p><b>Wingastock</b>, ni jukwaa linalounganisha wateja na wauzaji wa bidhaa,<br>
-                        Inasaidia wateja kupata mawasiliano ya wauza bidhaa kwa urahisi ili wafanye biashara kuuza au kununua bidhaa.
-                    </p>
-                </div>
-
-                <div class="foot-category" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
-                    <p style="text-align: center;"><b>Bidhaa zilizopo kutokana na makundi</b></p>
-                    <ul>
-                        <li><a href="#category">Electroniki</a></li>
-                        <li><a href="#category">Thamani za ndani</a></li>
-                        <li><a href="#category">Mavazi</a></li>
-                        <li><a href="#category">Vyakula</a></li>
-                        <li><a href="#category">Makazi</a></li>
-                        <li><a href="#category">N.K ...</a></li>
-                    </ul>
-                </div>
-
-                <div class="foot-contact">
-                    <p style="text-align: center;"><b>Mawasiliano</b></p>
-                    <p><b>Simu:</b> 255711319475</p>
-                    <p><b>Barua pepe:</b> serviceshomelibrary@gmail.com</p>
-                    <p><b>Anuani: </b>Mabibo, Dar es salaam</p>
-                </div>
-            </div>
+        <div class="foot-declaration" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
+          <p><b>Wingastock</b>, ni jukwaa linalounganisha wateja na wauzaji wa bidhaa,<br>
+            Inasaidia wateja kupata mawasiliano ya wauza bidhaa kwa urahisi ili wafanye biashara kuuza au kununua
+            bidhaa.
+          </p>
         </div>
+
+        <div class="foot-category" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
+          <p style="text-align: center;"><b>Bidhaa zilizopo kutokana na makundi</b></p>
+          <ul>
+            <li><a href="#category">Electroniki</a></li>
+            <li><a href="#category">Samani za ndani</a></li>
+            <li><a href="#category">Mavazi</a></li>
+            <li><a href="#category">Vyakula</a></li>
+            <li><a href="#category">Makazi</a></li>
+            <li><a href="#category">N.K ...</a></li>
+          </ul>
+        </div>
+
+        <div class="foot-contact">
+          <p style="text-align: center;"><b>Mawasiliano</b></p>
+          <p><b>Simu:</b> 255711319475</p>
+          <p><b>Barua pepe:</b> serviceshomelibrary@gmail.com</p>
+          <p><b>Anuani: </b>Mabibo, Dar es salaam</p>
+        </div>
+      </div>
     </div>
+  </div>
 
   <!-- javascripts code -->
   <script>

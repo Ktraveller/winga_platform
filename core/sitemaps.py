@@ -10,7 +10,7 @@ class ProductSitemap(Sitemap):
         return Product.objects.all()
 
     def lastmod(self, obj):
-        return obj.updated_at  # or obj.created_at if you don't have updated_at
+        return obj.created_at
 
 
 class StaticViewSitemap(Sitemap):

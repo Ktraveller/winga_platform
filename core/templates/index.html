@@ -9,7 +9,7 @@
     <title>Wingastock | Soko mtandao Tanzania</title>
 
     <meta name="description" content="Nunua na uza bidhaa za electoniki kama simu, laptops, TV, 
-    pia tunauza Thamani za ndani (furniture), vyumba, nyumba na bidhaa mbalimbali kupitia jukwaa letu wingastock ">
+    pia tunauza samani za ndani (furniture), vyumba, nyumba na bidhaa mbalimbali kupitia jukwaa letu wingastock ">
 
     <meta name="robots" content="index, follow">
 
@@ -29,6 +29,19 @@
     <link rel="stylesheet" href="{% static 'css/style2.css' %}">
     <link rel="stylesheet" href="{% static 'css/reuse-module.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <meta name="google-site-verification" content="cBo6MO_R0NHmkbNtZ4TbAd5KcLYgqPdt0XB-BgMYi1o" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STT2EJ7H54"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-STT2EJ7H54');
+    </script>
+
 </head>
 
 <body>
@@ -69,7 +82,7 @@
                                 <div class="font-card">
                                     <p class="t1"><b style="font-size: inherit;">Winga</b>stock</p>
                                     <p class="t3"><i class="fa fa-shopping-cart"></i></p>
-                                    <h1 class="t2">NUNUA NA UZA <br> BIDHAA KWA URAHISI</h1>
+                                    <h1 class="t2">NUNUA AU UZA <br> BIDHAA KWA URAHISI</h1>
                                 </div>
                             </div>
 
@@ -125,13 +138,19 @@
                                     <div>
                                         <div class="product-card" style="background: rgba(220, 20, 60, 0.12);"
                                             onclick="window.location.href=`{% url 'product_details' product.id %}`">
-                                            <div class="product-image-20">
-                                                <button type="button" class="button202">
+                                            <div class="product-image-20 fav-20">
+                                                <button type="button" class="button202 button202-2">
                                                     <b class="p-title-20">{{ product.title }}</b><br>
                                                     <span class="price40">{{ product.price }} Tsh</span>
                                                     <br><br>
                                                     <span><i class="fa fa-location-dot"></i>
                                                         {{ product.location }}</span>
+                                                </button>
+                                                <button type="button" class="button203">
+                                                    {% if product.image %}
+                                                    <img src="{{ product.image.url }}" 
+                                                        alt="{{ product.title }}">
+                                                {% endif %}
                                                 </button>
                                             </div>
                                         </div>
@@ -153,7 +172,7 @@
                                             onclick="window.location.href=`{% url 'filter_products' 'electronics' %}`">Electroniki</button>
                                     </div>
                                     <div><button type="button"
-                                            onclick="window.location.href=`{% url 'filter_products' 'furniture' %}`">Thamani za ndani</button>
+                                            onclick="window.location.href=`{% url 'filter_products' 'furniture' %}`">Samani za ndani</button>
                                     </div>
                                     <div><button type="button"
                                             onclick="window.location.href=`{% url 'filter_products' 'clothes' %}`">Mavazi</button>
@@ -161,6 +180,10 @@
                                     <div><button type="button"
                                             onclick="window.location.href=`{% url 'filter_products' 'food' %}`">Vyakula</button>
                                     </div>
+
+                                    <div><button type="button"
+                                          onclick="window.location.href=`{% url 'products' %}`">Bidhaa zaidi</button>
+                                      </div>
                                 </div>
                             </div>
 
@@ -193,10 +216,15 @@
                                         <div class="product-card"
                                             onclick="window.location.href=`{% url 'product_details' product.id %}`">
                                             <div class="product-image-20">
+                                                <button type="button" class="button201">
+                                                    {% if product.image %}
+                                                    <img src="{{ product.image.url }}" 
+                                                        alt="{{ product.title }}">
+                                                {% endif %}
+                                                </button>
                                                 <button type="button" class="button202">
                                                     <b class="p-title-20">{{ product.title }}</b><br>
-                                                    <span class="price40">{{ product.price }} Tsh</span>
-                                                    <br><br>
+                                                    <span class="price40">{{ product.price }} Tsh</span><br><br>
                                                     <span><i class="fa fa-location-dot"></i>
                                                         {{ product.location }}</span>
                                                 </button>
@@ -239,13 +267,18 @@
                                 {% for product in products %}
 
                                 <div>
-                                    <div class="product-card" style="background: whitesmoke;"
+                                    <div class="product-card"
                                         onclick="window.location.href=`{% url 'product_details' product.id %}`">
                                         <div class="product-image-20">
+                                            <button type="button" class="button201">
+                                                {% if product.image %}
+                                                    <img src="{{ product.image.url }}" 
+                                                        alt="{{ product.title }}">
+                                                {% endif %}
+                                            </button>
                                             <button type="button" class="button202">
                                                 <b class="p-title-20">{{ product.title }}</b><br>
-                                                <span class="price40">{{ product.price }} Tsh</span>
-                                                <br><br>
+                                                <span class="price40">{{ product.price }} Tsh</span><br><br>
                                                 <span><i class="fa fa-location-dot"></i>
                                                     {{ product.location }}</span>
                                             </button>
@@ -292,7 +325,7 @@
                     <p style="text-align: center;"><b>Bidhaa zilizopo kutokana na makundi</b></p>
                     <ul>
                         <li><a href="#category">Electroniki</a></li>
-                        <li><a href="#category">Thamani za ndani</a></li>
+                        <li><a href="#category">Samani za ndani</a></li>
                         <li><a href="#category">Mavazi</a></li>
                         <li><a href="#category">Vyakula</a></li>
                         <li><a href="#category">Makazi</a></li>

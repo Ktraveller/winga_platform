@@ -33,6 +33,9 @@ def add_product(request):
         price = request.POST.get("price", "")
         status = request.POST.get("status", "")
 
+        # Get uploaded image
+        image = request.FILES.get("image")
+
         # Validation
         if not title:
             messages.error(request, "Product title is required.")
@@ -62,16 +65,20 @@ def add_product(request):
             messages.error(request, "Phone number is required.")
             return redirect("add_product")
 
+        if not image:
+            messages.error(request, "Please upload an image.")
+            return redirect("add_product")
 
         # Save product
         Product.objects.create(
             title=title,
             description=description,
-            price=price,
             category=category,
+            price=price,
             phone=phone,
-            status=status,
             location=location,
+            status=status,
+            image=image,  # Uploaded to Cloudinary automatically
             owner=request.user,
         )
 
@@ -98,6 +105,9 @@ def edit_product(request, id):
         price = request.POST.get("price", "")
         status = request.POST.get("status", "")
 
+        # Get uploaded image
+        image = request.FILES.get("image")
+
         # Validation
         if not title:
             messages.error(request, "Product title is required.")
@@ -127,7 +137,6 @@ def edit_product(request, id):
             messages.error(request, "Phone number is required.")
             return redirect("edit_product", id=id)
 
-
         # Update product
         product.title = title
         product.description = description
@@ -136,8 +145,12 @@ def edit_product(request, id):
         product.phone = phone
         product.status = status
         product.location = location
-        product.save()
 
+        # Update image only if a new one was uploaded
+        if image:
+            product.image = image
+
+        product.save()
 
         messages.success(request, "Product updated successfully.")
         return redirect("edit_product", id=id)
@@ -145,11 +158,10 @@ def edit_product(request, id):
     return render(
         request,
         "privilege/edit_product.html",
-        {"selected": product}
+        {
+            "selected": product,
+        },
     )
-
-
-
 
 
 

@@ -4,8 +4,8 @@ from core.models import Product
 
 
 def home(request):
-    products = Product.objects.order_by('?')[:20]
-    fav_products = Product.objects.order_by('?')[:20]
+    products = Product.objects.order_by('?')[:50]
+    fav_products = Product.objects.order_by('?')[:15]
 
     return render(request, 'index.html', {
         'products': products,

@@ -9,7 +9,7 @@
   <title>Wingastock | Bidhaa zaidi, bidhaa pendwa</title>
 
   <meta name="description" content="Nunua na uza bidhaa za electoniki kama simu, laptops, TV, 
-    pia tunauza Thamani za ndani (furniture), vyumba, nyumba na bidhaa mbalimbali kupitia jukwaa letu wingastock ">
+    pia tunauza samani za ndani (furniture), vyumba, nyumba na bidhaa mbalimbali kupitia jukwaa letu wingastock ">
 
   <meta name="robots" content="index, follow">
 
@@ -29,6 +29,19 @@
   <link rel="stylesheet" href="{% static 'css/style2.css' %}">
   <link rel="stylesheet" href="{% static 'css/reuse-module.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <meta name="google-site-verification" content="cBo6MO_R0NHmkbNtZ4TbAd5KcLYgqPdt0XB-BgMYi1o" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-STT2EJ7H54"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-STT2EJ7H54');
+  </script>
+
 </head>
 
 <body>
@@ -36,7 +49,7 @@
   <!-- Layout -->
   <div class="row-holder-001">
     <div class="header-holder-001">
-      <div class="title-002" onclick="window.location.href=`{% url 'home' %}`">Winga platform</div>
+      <div class="title-002" onclick="window.location.href=`{% url 'home' %}`">Wingastock</div>
       <div class="action-002">
 
         <div class="sub-actions-003">
@@ -79,13 +92,18 @@
                   <div>
                     <div class="product-card" style="background: rgba(220, 20, 60, 0.12);"
                       onclick="window.location.href=`{% url 'product_details' product.id %}`">
-                      <div class="product-image-20">
-                        <button type="button" class="button202">
+                      <div class="product-image-20 fav-20">
+                        <button type="button" class="button202 button202-2">
                           <b class="p-title-20">{{ product.title }}</b><br>
                           <span class="price40">{{ product.price }} Tsh</span>
                           <br><br>
                           <span><i class="fa fa-location-dot"></i>
                             {{ product.location }}</span>
+                        </button>
+                        <button type="button" class="button203">
+                          {% if product.image %}
+                          <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                          {% endif %}
                         </button>
                       </div>
                     </div>
@@ -110,7 +128,7 @@
                       onclick="window.location.href=`{% url 'filter_products' 'electronics' %}`">Electroniki</button>
                   </div>
                   <div><button type="button"
-                      onclick="window.location.href=`{% url 'filter_products' 'furniture' %}`">Thamani za ndani</button>
+                      onclick="window.location.href=`{% url 'filter_products' 'furniture' %}`">Samani za ndani</button>
                   </div>
                   <div><button type="button"
                       onclick="window.location.href=`{% url 'filter_products' 'clothes' %}`">Mavazi</button>
@@ -118,6 +136,10 @@
                   <div><button type="button"
                       onclick="window.location.href=`{% url 'filter_products' 'food' %}`">Vyakula</button>
                   </div>
+
+                  <div><button type="button" onclick="window.location.href=`{% url 'products' %}`">Bidhaa zaidi</button>
+                  </div>
+
                 </div>
               </div>
 
@@ -145,6 +167,11 @@
                   <div>
                     <div class="product-card" onclick="window.location.href=`{% url 'product_details' product.id %}`">
                       <div class="product-image-20">
+                        <button type="button" class="button201">
+                          {% if product.image %}
+                          <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                          {% endif %}
+                        </button>
                         <button type="button" class="button202">
                           <b class="p-title-20">{{ product.title }}</b><br>
                           <span class="price40">{{ product.price }} Tsh</span>
@@ -164,7 +191,7 @@
 
               <!-- Filter products -->
               <div class="view-more-holder">
-                <button type="button">Tazama bidhaa zaidi</button>
+                <button type="button" onclick="window.location.href=`{% url 'products' %}`">Tazama bidhaa zaidi</button>
               </div>
             </div>
 
@@ -195,9 +222,14 @@
                 {% for product in other_products %}
 
                 <div>
-                  <div class="product-card" style="background: whitesmoke;"
+                  <div class="product-card"
                     onclick="window.location.href=`{% url 'product_details' product.id %}`">
                     <div class="product-image-20">
+                      <button type="button" class="button201">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                        {% endif %}
+                      </button>
                       <button type="button" class="button202">
                         <b class="p-title-20">{{ product.title }}</b><br>
                         <span class="price40">{{ product.price }} Tsh</span>
@@ -217,9 +249,7 @@
 
             <!-- Other product scroll -->
             <div class="scroll-products-holder" style="margin-top: 100px; float: left;">
-              <h1 style="font-size: 15px;">Pia unaweza ukapenda
-                <span style="float: right;">Tazama zaidi</span>
-              </h1>
+              <h1 style="font-size: 15px;">Pia unaweza ukapenda </h1>
               <div class="scroll-left-holder">
 
                 {% for product in like_products %}
@@ -228,7 +258,7 @@
                   <div class="product-card" style="background: whitesmoke;"
                     onclick="window.location.href=`{% url 'product_details' product.id %}`">
                     <div class="product-image-20">
-                      <button type="button" class="button202">
+                      <button type="button" class="button202" style="width: 100%; height: 100%;">
                         <b class="p-title-20">{{ product.title }}</b><br>
                         <span class="price40">{{ product.price }} Tsh</span>
                       </button>
@@ -240,6 +270,7 @@
 
               </div>
             </div>
+            
           </div>
 
         </div>
@@ -270,7 +301,7 @@
           <p style="text-align: center;"><b>Bidhaa zilizopo kutokana na makundi</b></p>
           <ul>
             <li><a href="#category">Electroniki</a></li>
-            <li><a href="#category">Thamani za ndani</a></li>
+            <li><a href="#category">Samani za ndani</a></li>
             <li><a href="#category">Mavazi</a></li>
             <li><a href="#category">Vyakula</a></li>
             <li><a href="#category">Makazi</a></li>

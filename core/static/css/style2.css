@@ -24,8 +24,8 @@
 
 .t2 {
     font-size: 25px;
-    font-family: 'Brush Script MT', cursive;
-    text-shadow: 3px 3px 3px #ababab30;
+    font-family: 'Trebuchet MS';
+    text-shadow: 3px 3px 3px #ababab88;
 }
 
 .t3>i {
@@ -158,7 +158,7 @@
 .products-grid>div {
     float: left;
     width: 50%;
-    height: 150px;
+    height: 250px;
     padding: 10px;
     background: transparent;
 }
@@ -167,13 +167,15 @@
     width: 100%;
     height: 100%;
     border-radius: 5px;
-    padding: 10px;
-    background: palegoldenrod;
+    background: transparent;
     cursor: pointer;
     text-align: left;
     overflow: hidden;
 }
 
+.product-card:hover {
+    border: 1px solid rgba(0, 0, 0, 0.093);
+}
 
 .product-image-20 {
     width: 100%;
@@ -189,27 +191,29 @@
 
 .button201 {
     width: 100%;
-    height: 70%;
+    height: 60%;
+    padding: 0px;
     text-align: center;
 }
 
 .button201>img {
-    width: 95%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
     margin: auto;
-    border-radius: 5px
+    border-radius: 5px;
 }
 
 .button201>img:hover {
-    transform: scale(1.1);
+    opacity: 0.9;
     transition: 0.3s;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
 .button202 {
     width: 100%;
-    height: 100%;
+    height: 30%;
     padding-left: 10px;
     border-style: none;
     text-align: left;
@@ -219,7 +223,32 @@
     overflow: hidden;
 }
 
+.fav-20 {
+    padding: 10px;
+}
 
+.fav-20>button {
+    float: left;
+}
+
+.button202-2 {
+    width: 60%;
+    height: 100%;
+}
+
+.button203 {
+    width: 40%;
+    height: 100%;
+    padding: 0px;
+    text-align: center;
+}
+
+
+.button203>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
 
 .nav-actions {
     margin-bottom: 50px;
@@ -238,7 +267,7 @@
     .products-grid>div {
         float: left;
         width: 20%;
-
+        height: 350px;
     }
 }
 
@@ -261,6 +290,20 @@
     float: left;
     padding: 10px;
     width: 100%;
+}
+
+.product-det-005 {
+    width: 100%;
+    height: 500px;
+    background: transparent;
+    border-style: none;
+    outline: none;
+}
+
+.product-det-005>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
 .request-contacts {
