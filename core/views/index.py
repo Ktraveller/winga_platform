@@ -4,12 +4,28 @@ from core.models import Product
 
 
 def home(request):
-    products = Product.objects.order_by('?')[:50]
-    fav_products = Product.objects.order_by('?')[:15]
+    scroll1_products = Product.objects.order_by('?')[:15]
+    scroll2_products = Product.objects.order_by('?')[:15]
+    scroll3_products = Product.objects.order_by('?')[:15]
+    left1_products = Product.objects.order_by('?')[:25]
+    left2_products = Product.objects.order_by('?')[:25]
+    left3_products = Product.objects.order_by('?')[:25]
+    right_products = Product.objects.order_by('?')[:25]
+
+    # group 
+    product_l = Product.objects.order_by('?')[:10]
+
 
     return render(request, 'index.html', {
-        'products': products,
-        'favorite_products': fav_products
+        'scroll1_products': scroll1_products,
+        'scroll2_products': scroll2_products,
+        'scroll3_products': scroll3_products,
+        'left1_products': left1_products,
+        'left2_products': left2_products,
+        'left3_products': left3_products,
+        'right_products': right_products,
+
+        'product_l': product_l,
     })
 
 

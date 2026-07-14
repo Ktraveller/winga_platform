@@ -3,371 +3,351 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Wingastock | Bidhaa zaidi, bidhaa pendwa</title>
+    <title>Wingastock | Bidhaa zaidi, bidhaa pendwa</title>
 
-  <meta name="description" content="Nunua na uza bidhaa za electoniki kama simu, laptops, TV, 
+    <meta name="description" content="Nunua na uza bidhaa za electoniki kama simu, laptops, TV, 
     pia tunauza samani za ndani (furniture), vyumba, nyumba na bidhaa mbalimbali kupitia jukwaa letu wingastock ">
 
-  <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 
-  <link rel="canonical" href="https://wingastock.onrender.com/">
+    <link rel="canonical" href="https://wingastock.onrender.com/">
 
-  <meta property="og:title" content="Wingastock">
+    <meta property="og:title" content="Wingastock">
 
-  <meta property="og:description" content="Soko mtandao Tanzania">
+    <meta property="og:description" content="Soko mtandao Tanzania">
 
-  <meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 
-  <meta property="og:image" content="/static/logo.png">
+    <meta property="og:image" content="/static/logo.png">
 
-  <link rel="shortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
 
-  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
-  <link rel="stylesheet" href="{% static 'css/style2.css' %}">
-  <link rel="stylesheet" href="{% static 'css/reuse-module.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reuse-module.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-  <meta name="google-site-verification" content="cBo6MO_R0NHmkbNtZ4TbAd5KcLYgqPdt0XB-BgMYi1o" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-STT2EJ7H54"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <meta name="google-site-verification" content="cBo6MO_R0NHmkbNtZ4TbAd5KcLYgqPdt0XB-BgMYi1o" />
 
-    gtag('config', 'G-STT2EJ7H54');
-  </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-STT2EJ7H54"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-STT2EJ7H54');
+    </script>
 
 </head>
 
 <body>
 
-  <!-- Layout -->
-  <div class="row-holder-001">
-    <div class="header-holder-001">
-      <div class="title-002" onclick="window.location.href=`{% url 'home' %}`">Wingastock</div>
-      <div class="action-002">
+    <!-- Header part -->
+    <div class="row-holder">
 
-        <div class="sub-actions-003">
-          <button type="button"
-            onclick="window.location.href=`https://wa.me/255711319475?text=Habari, nataka kuuza bidhaa yangu.`">Uza
-            bidhaa</button>
-        </div>
+        <!-- Heading part -->
+        <div class="header-holder-001">
+            <div class="header-001">
+                <div class="title-holder-002">
+                    <button type="button" onclick="window.location.href=`{% url 'home' %}`">Wingastock</button>
+                </div>
 
+                <div class="category-holder-002">
+                    <button type="button">
+                        <marquee scrollamount="2">
+                            <b>Bidhaa zilizopo</b>: &nbsp;&nbsp;
+                            <i class="fas fa-couch"></i> Samani za nyumbani &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fas fa-mobile-alt"></i> Electroniki &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fas fa-utensils"></i> Vyakula &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fas fa-tshirt"></i> Mavazi &nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fas fa-box-open"></i> Bidhaa zaidi &nbsp;&nbsp;&nbsp;&nbsp;
+                        </marquee>
+                    </button>
+                </div>
 
-      </div>
-    </div>
-
-
-    <div class="content-holder-001">
-      <div class="center-content-holder-002">
-        <!-- First part -->
-
-        <div class="content-decor-002">
-
-          <div class="left-content-holder-003">
-            <div class="left-content-003">
-              <!-- Left gap -->
+                <div class="search-holder-002">
+                    <button type="button" class="input-b-003">
+                        <input type="text" placeholder="Search ...">
+                    </button>
+                    <button type="button" class="sb-003"><i class="fas fa-search"></i></button>
+                    <button type="button" class="sb-003"><i class="fas fa-filter"></i></button>
+                </div>
             </div>
-          </div>
-
-          <div class="right-content-holder-003">
-            <div class="products-holder-004">
-
-              <!-- Favorite products -->
-              <h1 style="margin-top: 100px; font-size: 15px;">Bidhaa pendwa
-                <span style="float: right;">Tazama zaidi</span>
-              </h1>
+        </div>
+        <!-- End heading -->
 
 
-              <div class="scroll-products-holder">
+        <!-- Center content -->
+        <div class="center-content-holder-001">
+
+            <!-- Category left -->
+            <div class="category-holder-left-002" style="margin-bottom: 50px;">
+
+                <div class="category-holder-003" style="width: 100%;">
+                    <div>
+                        <p style="font-weight: bold; color: crimson;">Makundi ya bidhaa <span
+                                style="float: right;">Tazama
+                                zaidi</span></p>
+                        <div class="category-left-scroll-004">
+                            <div class="category-scroll-004">
+
+                                <button type="button"
+                                    onclick="window.location.href=`{% url 'filter_products' 'furniture' %}`">
+                                    <i class="fas fa-couch"></i><br>
+                                    Samani za nyumbani
+                                </button>
+
+                                <button type="button"
+                                    onclick="window.location.href=`{% url 'filter_products' 'electronics' %}`">
+                                    <i class="fas fa-mobile-alt"></i><br>
+                                    Electroniki
+                                </button>
+
+                                <button type="button"
+                                    onclick="window.location.href=`{% url 'filter_products' 'food' %}`">
+                                    <i class="fas fa-utensils"></i><br>
+                                    Vyakula
+                                </button>
+
+                                <button type="button"
+                                    onclick="window.location.href=`{% url 'filter_products' 'clothes' %}`">
+                                    <i class="fas fa-tshirt"></i><br>
+                                    Mavazi
+                                </button>
+
+                                <button type="button" onclick="window.location.href=`{% url 'products' %}`">
+                                    <i class="fas fa-box-open"></i><br>
+                                    Bidhaa zaidi
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End category left -->
+
+
+            <!-- Scroll 1 -->
+            <h1 style="margin-top: 50px; padding-left: 10px;">Bidhaa pendwa</h1>
+            <div class="scroll-products-holder" style="margin-bottom: 50px;">
                 <div class="scroll-left-holder">
 
-                  {% for product in products %}
+                    {% for product in like_products %}
 
-                  <div>
-                    <div class="product-card" style="background: rgba(220, 20, 60, 0.12);"
-                      onclick="window.location.href=`{% url 'product_details' product.id %}`">
-                      <div class="product-image-20 fav-20">
-                        <button type="button" class="button202 button202-2">
-                          <b class="p-title-20">{{ product.title }}</b><br>
-                          <span class="price40">{{ product.price }} Tsh</span>
-                          <br><br>
-                          <span><i class="fa fa-location-dot"></i>
-                            {{ product.location }}</span>
-                        </button>
-                        <button type="button" class="button203">
-                          {% if product.image %}
-                          <img src="{{ product.image.url }}" alt="{{ product.title }}">
-                          {% endif %}
-                        </button>
-                      </div>
+                    <div>
+                        <div class="product-card" style="background: rgba(220, 20, 60, 0.12);"
+                            onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                            <div class="product-image-20 fav-20">
+                                <button type="button" class="button202 button202-2">
+                                    <b class="p-title-20">{{ product.title }}</b><br>
+                                    <span class="price40">{{ product.price }} Tsh</span>
+                                    <br><br><br>
+                                    <span class="locate-20"><i class="fa fa-location-dot"></i>
+                                        {{ product.location }}</span>
+                                </button>
+                                <button type="button" class="button203">
+                                    {% if product.image %}
+                                    <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
 
-                  {% endfor %}
-
-                </div>
-              </div>
-
-              <!-- Product category -->
-              <h1 style="margin-top: 100px; font-size: 15px;" id="category">Makundi ya bidhaa
-              </h1>
-
-
-
-
-
-              <div class="category-product-holder">
-                <div class="category-holder">
-                  <div><button type="button"
-                      onclick="window.location.href=`{% url 'filter_products' 'electronics' %}`">Electroniki</button>
-                  </div>
-                  <div><button type="button"
-                      onclick="window.location.href=`{% url 'filter_products' 'furniture' %}`">Samani za ndani</button>
-                  </div>
-                  <div><button type="button"
-                      onclick="window.location.href=`{% url 'filter_products' 'clothes' %}`">Mavazi</button>
-                  </div>
-                  <div><button type="button"
-                      onclick="window.location.href=`{% url 'filter_products' 'food' %}`">Vyakula</button>
-                  </div>
-
-                  <div><button type="button" onclick="window.location.href=`{% url 'products' %}`">Bidhaa zaidi</button>
-                  </div>
+                    {% endfor %}
 
                 </div>
-              </div>
-
-
-
-
-              <h1 style="margin-top: 100px; font-size: 15px;">Bidhaa mbalimbali</h1>
-
-              <!-- Search module -->
-              <div class="search-filter-filter">
-                <input type="text" id="searchInput" placeholder="Tafuta bidhaa ..." onkeyup="filterProducts()">
-
-                <button type="button" onclick="window.location.href=`{% url 'filter_products' 'filter' %}`"><i
-                    class="fa fa-filter"></i></button>
-                <button type="button" onclick="window.location.href=`{% url 'filter_products' 'sort' %}`"><i
-                    class="fa fa-sort"></i></button>
-              </div>
-
-
-              <div class="products-holder-005">
-                <div class="products-grid" id="productGrid">
-
-                  {% for product in products %}
-
-                  <div>
-                    <div class="product-card" onclick="window.location.href=`{% url 'product_details' product.id %}`">
-                      <div class="product-image-20">
-                        <button type="button" class="button201">
-                          {% if product.image %}
-                          <img src="{{ product.image.url }}" alt="{{ product.title }}">
-                          {% endif %}
-                        </button>
-                        <button type="button" class="button202">
-                          <b class="p-title-20">{{ product.title }}</b><br>
-                          <span class="price40">{{ product.price }} Tsh</span>
-                          <br><br>
-                          <span><i class="fa fa-location-dot"></i>
-                            {{ product.location }}</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  {% endfor %}
-
-                </div>
-
-              </div>
-
-              <!-- Filter products -->
-              <div class="view-more-holder">
-                <button type="button" onclick="window.location.href=`{% url 'products' %}`">Tazama bidhaa zaidi</button>
-              </div>
             </div>
 
-          </div>
+            <!-- product left -->
+            <h1 style="margin-top: 50px; padding-left: 10px;">Bidhaa mbalimbali</h1>
+            <div class="product-left-holder-002">
 
-        </div>
-      </div>
-
-
-      <!-- Second part -->
-      <div class="content-decor-002">
-
-        <div class="left-content-holder-003">
-          <div class="left-content-003">
-            <!-- Left gap -->
-          </div>
-        </div>
-
-        <div class="right-content-holder-003">
-          <div class="products-holder-004" style="border-top-left-radius: 20px;">
-
-            <h1 style="margin-top: 100px; font-size: 15px;">Bidhaa nyingine</h1>
-
-
-            <div class="products-holder-005">
-              <div class="products-grid" id="productGrid">
-
-                {% for product in other_products %}
-
-                <div>
-                  <div class="product-card"
-                    onclick="window.location.href=`{% url 'product_details' product.id %}`">
-                    <div class="product-image-20">
-                      <button type="button" class="button201">
-                        {% if product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
-                        {% endif %}
-                      </button>
-                      <button type="button" class="button202">
-                        <b class="p-title-20">{{ product.title }}</b><br>
-                        <span class="price40">{{ product.price }} Tsh</span>
-                        <br><br>
-                        <span><i class="fa fa-location-dot"></i>
-                          {{ product.location }}</span>
-                      </button>
+                {% for product in products1 %}
+                <div class="product-left-003" onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                    <div>
+                        <button type="button" class="product-pic-006">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </button>
+                        <button type="button" class="details-pic-006">
+                            <p>
+                                <b>{{ product.title }}</b> <br>
+                                <span class="title-p-005">{{ product.price }} Tsh</span><br><br>
+                                <span class="locate-005">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    {{ product.location }}
+                                </span><br><br>
+                            </p>
+                        </button>
                     </div>
-                  </div>
                 </div>
-
                 {% endfor %}
 
-              </div>
-
             </div>
+            <!-- end product left -->
 
-            <!-- Other product scroll -->
-            <div class="scroll-products-holder" style="margin-top: 100px; float: left;">
-              <h1 style="font-size: 15px;">Pia unaweza ukapenda </h1>
-              <div class="scroll-left-holder">
+            <!-- product left -->
+            <div class="product-left-holder-002">
 
-                {% for product in like_products %}
-
-                <div style="height: 100px;">
-                  <div class="product-card" style="background: whitesmoke;"
-                    onclick="window.location.href=`{% url 'product_details' product.id %}`">
-                    <div class="product-image-20">
-                      <button type="button" class="button202" style="width: 100%; height: 100%;">
-                        <b class="p-title-20">{{ product.title }}</b><br>
-                        <span class="price40">{{ product.price }} Tsh</span>
-                      </button>
+                {% for product in products2 %}
+                <div class="product-left-004" onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                    <div>
+                        <button type="button" class="product-pic-005">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </button>
+                        <button type="button" class="details-pic-005">
+                            <p>
+                                <b>{{ product.title }}</b> <br>
+                                <span class="title-p-005">{{ product.price }} Tsh</span><br><br>
+                                <span class="locate-005">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    {{ product.location }}
+                                </span><br><br>
+                            </p>
+                        </button>
                     </div>
-                  </div>
                 </div>
-
                 {% endfor %}
 
-              </div>
             </div>
-            
-          </div>
+            <!-- end product left -->
+
+            <!-- product left -->
+            <div class="product-left-holder-002">
+
+                {% for product in products4 %}
+                <div class="product-left-003" onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                    <div>
+                        <button type="button" class="product-pic-006">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </button>
+                        <button type="button" class="details-pic-006">
+                            <p>
+                                <b>{{ product.title }}</b> <br>
+                                <span class="title-p-005">{{ product.price }} Tsh</span><br><br>
+                                <span class="locate-005">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    {{ product.location }}
+                                </span><br><br>
+                            </p>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <!-- end product left -->
+
+            <!-- product left -->
+            <div class="product-left-holder-002">
+
+                {% for product in products5 %}
+                <div class="product-left-003" onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                    <div>
+                        <button type="button" class="product-pic-006">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </button>
+                        <button type="button" class="details-pic-006">
+                            <p>
+                                <b>{{ product.title }}</b> <br>
+                                <span class="title-p-005">{{ product.price }} Tsh</span><br><br>
+                                <span class="locate-005">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    {{ product.location }}
+                                </span><br><br>
+                            </p>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <!-- end product left -->
+
+
+            <!-- product left -->
+            <div class="product-right-holder-002">
+
+                {% for product in products_l %}
+                <div class="product-left-004" onclick="window.location.href=`{% url 'product_details' product.id %}`">
+                    <div>
+                        <button type="button" class="product-pic-005">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </button>
+                        <button type="button" class="details-pic-005">
+                            <p>
+                                <b>{{ product.title }}</b> <br>
+                                <span class="title-p-005">{{ product.price }} Tsh</span><br><br>
+                                <span class="locate-005">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    {{ product.location }}
+                                </span><br><br>
+                            </p>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <!-- end product left -->
 
         </div>
+        <!-- End content -->
 
-      </div>
-    </div>
+        <!-- Footer content -->
+        <div class="footer-content-holder">
+            <div class="footer-content">
+                <h1 style="font-size: 15px; text-align: center; margin-bottom: 50px;">Karibu kwenye tovuti yetu
+                    'Wingastock'</h1>
 
+                <div class="foot-content">
 
+                    <div class="foot-declaration" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
+                        <p><b>Wingastock</b>, ni jukwaa linalounganisha wateja na wauzaji wa bidhaa,<br>
+                            Inasaidia wateja kupata mawasiliano ya wauza bidhaa kwa urahisi ili wafanye biashara kuuza
+                            au kununua bidhaa.
+                        </p>
+                    </div>
 
-  </div>
+                    <div class="foot-category" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
+                        <p style="text-align: center;"><b>Bidhaa zilizopo kutokana na makundi</b></p>
+                        <ul>
+                            <li><a href="#category">Electroniki</a></li>
+                            <li><a href="#category">Samani za ndani</a></li>
+                            <li><a href="#category">Mavazi</a></li>
+                            <li><a href="#category">Vyakula</a></li>
+                            <li><a href="#category">Makazi</a></li>
+                            <li><a href="#category">N.K ...</a></li>
+                        </ul>
+                    </div>
 
+                    <div class="foot-contact">
+                        <p style="text-align: center;"><b>Mawasiliano</b></p>
+                        <p><b>Simu:</b> 255711319475</p>
+                        <p><b>Barua pepe:</b> serviceshomelibrary@gmail.com</p>
+                        <p><b>Anuani: </b>Mabibo, Dar es salaam</p>
+                    </div>
+                </div>
+            </div>
 
-  <!-- Footer content -->
-  <div class="footer-content-holder">
-    <div class="footer-content">
-      <h1 style="font-size: 15px; text-align: center; margin-bottom: 50px;">Karibu kwenye tovuti yetu 'Wingastock'</h1>
-
-      <div class="foot-content">
-
-        <div class="foot-declaration" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
-          <p><b>Wingastock</b>, ni jukwaa linalounganisha wateja na wauzaji wa bidhaa,<br>
-            Inasaidia wateja kupata mawasiliano ya wauza bidhaa kwa urahisi ili wafanye biashara kuuza au kununua
-            bidhaa.
-          </p>
         </div>
-
-        <div class="foot-category" style="border-right: 1px solid rgba(255, 255, 255, 0.522);">
-          <p style="text-align: center;"><b>Bidhaa zilizopo kutokana na makundi</b></p>
-          <ul>
-            <li><a href="#category">Electroniki</a></li>
-            <li><a href="#category">Samani za ndani</a></li>
-            <li><a href="#category">Mavazi</a></li>
-            <li><a href="#category">Vyakula</a></li>
-            <li><a href="#category">Makazi</a></li>
-            <li><a href="#category">N.K ...</a></li>
-          </ul>
-        </div>
-
-        <div class="foot-contact">
-          <p style="text-align: center;"><b>Mawasiliano</b></p>
-          <p><b>Simu:</b> 255711319475</p>
-          <p><b>Barua pepe:</b> serviceshomelibrary@gmail.com</p>
-          <p><b>Anuani: </b>Mabibo, Dar es salaam</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- javascripts code -->
-  <script>
-    function menu_bar(value) {
-      bar = document.getElementById("menu_bar");
-
-      if (value == 1) {
-        bar.style.display = 'inline-block';
-      }
-      else {
-        bar.style.display = 'none';
-      }
-    }
-  </script>
-
-  <script>
-    function filterProducts() {
-      const input = document.getElementById('searchInput');
-      const filter = input.value.toLowerCase();
-      const productGrid = document.getElementById('productGrid');
-      const products = productGrid.getElementsByClassName('product-card');
-
-      for (let i = 0; i < products.length; i++) {
-        const productTitle = products[i].querySelector('.button202 b').textContent.toLowerCase();
-        if (productTitle.includes(filter)) {
-          products[i].parentElement.style.display = '';
-        } else {
-          products[i].parentElement.style.display = 'none';
-        }
-      }
-    }
-  </script>
-
-
-  <script>
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1 }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 10000); // Change image every 2 seconds
-    } 
-  </script>
 </body>
 
 </html>
