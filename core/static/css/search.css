@@ -39,6 +39,14 @@
     width: 100%;
     height: 50px;
     margin-top: 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50px;
+}
+
+.search-0003 {
+    margin-top: 80px;
 }
 
 .search-product-0004 {
