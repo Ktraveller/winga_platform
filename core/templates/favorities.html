@@ -46,6 +46,12 @@
 
     <div class="row-holder-001">
 
+        <div class="header-holder-002">
+            <div class="header-content-holder-003">
+                <h1 style="font-size: 20px;">Bidhaa pendwa</h1>
+            </div>
+        </div>
+
 
         <div class="content-holder-002">
 
@@ -57,8 +63,10 @@
                     <div class="product-card-holder-004">
                         <div style="background-image: url('{{ product.image.url }}');"
                             onclick="window.location.href=`{% url 'product_details' product.id %}`">
-                            <p>{{ product.title }}</p>
-                            <span>{{ product.price }} Tsh</span>
+                            <div class="fav-004">
+                                <span style="font-weight: bold;">{{ product.title }}</span><br>
+                                <span>{{ product.price }} Tsh</span>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}

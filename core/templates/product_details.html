@@ -48,6 +48,12 @@
 
   <div class="row-holder-001">
 
+    <div class="header-holder-002">
+      <div class="header-content-holder-003">
+        <h1 style="font-size: 20px;">{{ product.title }}</h1>
+      </div>
+    </div>
+
     <div class="content-holder-002">
 
       <!-- Preview product -->
@@ -55,13 +61,17 @@
 
         <div class="preview-product-004">
           <div class="preview-pic-005">
-            <img src="" alt="" srcset="">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+            {% endif %}
           </div>
           <div class="preview-details-005">
             <div>
-              <p style="font-weight: bold;">I phone 14</p>
-              <p>Details</p>
-              <p>Price</p>
+              <p style="font-weight: bold;">{{ product.title }}</p>
+              <p>
+              <pre>{{ product.title }}</pre>
+              </p>
+              <p>{{ product.price }}</p>
 
               <div class="actions-holder-005">
                 <div>

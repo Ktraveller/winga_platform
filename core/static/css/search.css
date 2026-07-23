@@ -76,7 +76,7 @@
 .favorite-product-003>div {
     float: left;
     width: 50%;
-    height: 150px;
+    height: 250px;
 }
 
 .product-card-holder-004 {
@@ -97,6 +97,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-name: favorite_product;
     animation-duration: 500ms;
+    overflow: hidden;
 }
 
 .product-card-holder-004>div:hover {
@@ -105,10 +106,13 @@
     margin: auto;
 }
 
-.product-card-holder-004>div>p {
-    font-size: 12px;
-    font-weight: bold;
-    color: crimson;
+
+.fav-004 {
+    width: auto;
+    height: auto;
+    background: rgba(245, 245, 245, 0.653);
+    padding: 5px;
+    border-radius: 5px;
 }
 
 

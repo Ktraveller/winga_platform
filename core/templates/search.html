@@ -46,6 +46,12 @@
 
     <div class="row-holder-001">
 
+        <div class="header-holder-002">
+            <div class="header-content-holder-003">
+                <h1 style="font-size: 20px;">Tafuta bidhaa</h1>
+            </div>
+        </div>
+
         <div class="content-holder-002">
 
             <!-- Saerch product -->
@@ -70,8 +76,9 @@
                                 {% endif %}
                             </div>
                             <div class="fav-details-003">
-                                <span>{{ product.title }}</span>
-                                <span>{{ product.price }} Tsh</span>
+                                <p style="font-weight: 900;">{{ product.title }}</p>
+                                <p>{{ product.details|truncatechars:100 }}</p>
+                                <span style="font-size: 18px; font-weight: bold;">{{ product.price }} Tsh</span>
                             </div>
                         </div>
                     </div>
