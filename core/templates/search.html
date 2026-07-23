@@ -99,18 +99,23 @@
 
     <script>
         const searchInput = document.getElementById("searchInput");
-        const buttons = document.querySelectorAll("#buttonContainer div");
+        const products = document.querySelectorAll("#buttonContainer > div");
 
         searchInput.addEventListener("input", function () {
             const searchText = this.value.toLowerCase().trim();
 
-            buttons.forEach(button => {
-                const buttonText = button.textContent.toLowerCase();
+            products.forEach(product => {
+                // Get the title and description
+                const title = product.querySelector(".fav-details-003 p:first-child")?.textContent.toLowerCase() || "";
+                const description = product.querySelector(".fav-details-003 p:nth-child(2)")?.textContent.toLowerCase() || "";
 
-                if (buttonText.includes(searchText)) {
-                    button.style.display = "";
+                if (
+                    title.includes(searchText) ||
+                    description.includes(searchText)
+                ) {
+                    product.style.display = "";
                 } else {
-                    button.style.display = "none";
+                    product.style.display = "none";
                 }
             });
         });
