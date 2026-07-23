@@ -2,7 +2,7 @@ from django.urls import path
 from core.views.admin_views.login_admin import admin_login, admin_logout
 from core.views.admin_views.sellers import sellers
 from core.views.admin_views.products import add_product, delete_product, edit_product, preview_p, admin_products
-from core.views.index import about, health_check, home
+from core.views.index import about, health_check, home, search, categories, favorities
 from core.views.products import preview_products, products, filter_products
 from core.views.admin_views.index import admin_home
 
@@ -13,6 +13,10 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 urlpatterns = [
     # Customers
     path('', home, name='home'),
+    path('tafuta/', search, name='search'),
+    path('makundi/', categories, name='categories'),
+    path('pendwa/', favorities, name='favorities'),
+    
     path('bidhaa/', products, name="products"),
     path('p/<int:id>', preview_products, name="product_details"),
     path('f/<str:category>', filter_products, name="filter_products"),
@@ -36,14 +40,6 @@ urlpatterns = [
     path('privilege/login/', admin_login, name='login_admin'),
     path('privilege/logout/', admin_logout, name='logout_admin'),
 
-
-    path(
-        "robots.txt",
-        RedirectView.as_view(
-            url=staticfiles_storage.url("robots.txt"),
-            permanent=True
-        ),
-    ),
 
     # web check
     path('ping/', health_check, name='health_check'),

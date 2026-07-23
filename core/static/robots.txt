@@ -14,4 +14,4 @@ Disallow: /accounts/
 Disallow: /search/
 
 # Sitemap
-Sitemap: https://winga-platform.onrender.com/sitemap.xml
+Sitemap: https://wingastock.onrender.com/sitemap.xml

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/search.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <title>Wingastock | Bidhaa</title>
+    <title>Wingastock | Tafuta bidhaa</title>
 
     <meta name="description" content="Nunua na uza bidhaa za electoniki kama simu, laptops, TV, 
     pia tunauza samani za ndani (furniture), vyumba, nyumba na bidhaa mbalimbali kupitia jukwaa letu wingastock ">
@@ -48,19 +48,29 @@
 
         <div class="content-holder-002">
 
+            <!-- Saerch product -->
+            <div class="search-product-holder-0003">
+                <div class="search-product-0004">
+                    <input type="text" placeholder="Tafuta bidhaa ..." id="searchInput">
+                </div>
+            </div>
 
-            <!-- Center content -->
-            <div class="product-card-holder-1001">
-                <div class="product-card-1002">
+            <!-- In list form -->
+            <div class="list-fav-product-holder-003">
+                <div class="list-fav-product-003" id="buttonContainer">
 
-                    {% for product in products %}
+                    {% for product in search_result %}
 
                     <div>
-                        <div class="product-1002" style="background-image: url('{{ product.image.url }}');"
+                        <div class="list-fav-003"
                             onclick="window.location.href=`{% url 'product_details' product.id %}`">
-                            <div class="p-1003"></div>
-                            <div class="product-details-1003">
-                                <span style="font-weight: 100;">{{ product.title }}</span><br>
+                            <div class="fav-image-003">
+                                {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                                {% endif %}
+                            </div>
+                            <div class="fav-details-003">
+                                <span>{{ product.title }}</span>
                                 <span>{{ product.price }} Tsh</span>
                             </div>
                         </div>
@@ -71,7 +81,6 @@
                 </div>
             </div>
 
-
         </div>
 
         <!-- Nav bar -->
@@ -79,6 +88,24 @@
 
     </div>
 
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const buttons = document.querySelectorAll("#buttonContainer div");
+
+        searchInput.addEventListener("input", function () {
+            const searchText = this.value.toLowerCase().trim();
+
+            buttons.forEach(button => {
+                const buttonText = button.textContent.toLowerCase();
+
+                if (buttonText.includes(searchText)) {
+                    button.style.display = "";
+                } else {
+                    button.style.display = "none";
+                }
+            });
+        });
+    </script>
 
 </body>
 
