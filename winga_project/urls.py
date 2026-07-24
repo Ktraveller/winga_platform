@@ -16,10 +16,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from core.sitemaps import ProductSitemap, StaticViewSitemap
+
+
+
+def robots_txt(request):
+    content = """User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /register/
+Disallow: /accounts/
+Disallow: /search/
+
+Sitemap: https://wingastock.onrender.com/sitemap.xml
+"""
+    return HttpResponse(content, content_type="text/plain")
 
 
 sitemaps = {
@@ -30,6 +48,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("robots.txt", robots_txt),
     path('', include('core.urls')),
 
     path(
